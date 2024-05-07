@@ -1,11 +1,20 @@
-import { IsNotEmpty, IsNumber, IsString, MinLength } from 'class-validator';
+import {
+  IsInt,
+  IsNotEmpty,
+  IsPositive,
+  IsString,
+  Min,
+  MinLength,
+} from 'class-validator';
 
 export class CreatePokemonDto {
   @IsNotEmpty()
   @IsString()
   @MinLength(3)
-  readonly name: string;
+  name: string;
   @IsNotEmpty()
-  @IsNumber()
-  readonly no: number;
+  @IsInt()
+  @IsPositive()
+  @Min(1)
+  no: number;
 }
