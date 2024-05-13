@@ -15,7 +15,9 @@ import { PaginationDto } from 'src/common/dto/pagination.dto';
 export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name) private readonly pokemonModel: Model<Pokemon>,
-  ) {}
+  ) {
+    console.log(process.env.DEFAULT_LIMIT,"Pokemon ENVIRONMENT");
+  }
   async create(createPokemonDto: CreatePokemonDto) {
     try {
       createPokemonDto.name = createPokemonDto.name.toLowerCase();
