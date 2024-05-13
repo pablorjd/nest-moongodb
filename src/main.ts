@@ -15,6 +15,7 @@ async function bootstrap() {
       },
     }),
   );
-  await app.listen(3000);
+  await app.listen(process.env.PORT); //! el process.env.PORT funciona tanto en los modulos como en el core de la application
+  console.log(`App is listening on ${process.env.PORT}`);
 }
 bootstrap();
